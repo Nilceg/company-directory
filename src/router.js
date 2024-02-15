@@ -25,7 +25,7 @@ const router = createRouter({
 //navigation guard
 router.beforeEach((to, _, next) => {
   if (to.meta.requiresAuth && !isAuthenticated.value) {
-    next({name: 'LoginPage', query: {redirect: toString.fullPath}})
+    next({name: 'LoginPage', query: {redirect: to.fullPath}})
   } else {
     next()
   }
